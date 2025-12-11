@@ -43,6 +43,70 @@ Same 5,000 read pairs from **entire hg38 genome** → **<0.001× depth** → **n
 This repository contains the complete pipeline, scripts, figures, and results, demonstrating why *coverage depth is the single most important factor in mutation detection*.
 
 ---
+# 📚 Related Work & Comparison to Published Benchmarking Studies
+
+Reliable benchmarking of variant callers typically depends on very large, high-quality truth sets such as the Genome in a Bottle (GIAB) consortium. One of the most comprehensive variant calling benchmark studies is:
+
+Barbitoff et al., “Systematic benchmarking of variant calling pipelines for clinical diagnostics” (2022)
+doi: 10.1186/s13073-022-01057-7
+
+🔬 What the Barbitoff et al. Study Did
+
+```
+| Aspect                     | Barbitoff et al. (2022)                                                   | Our Work                                           |
+| -------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------- |
+| **Data scale**             | Full GIAB sequencing datasets (40–80 GB BAM per sample)                   | Synthetic reads (400–800 KB BAM per sample)        |
+| **Samples**                | 14 human genomes                                                          | 1 synthetic tumor–normal pair (expandable)         |
+| **Variants per sample**    | ~20,000–25,000                                                            | ~180–200                                           |
+| **Aligners tested**        | BWA-MEM, Bowtie2, Isaac, NovoAlign                                        | BWA-MEM (Future: Bowtie2)                          |
+| **Variant callers tested** | 9 callers (GATK, DeepVariant, Strelka2, Octopus, FreeBayes, Clair3, etc.) | 2 callers: GATK HaplotypeCaller & DeepVariant      |
+| **Filtering strategies**   | CNN filtering, VQSR, hard filters                                         | Hard filters only (no VQSR due to synthetic truth) |
+| **Truth set**              | GIAB high-confidence regions                                              | Synthetic somatic truth injected programmatically  |
+```
+
+# 🧬 Why Our Project Is Novel and Scientifically Valuable
+
+Unlike GIAB-based studies, which rely on naturally occurring germline variation, our project introduces:
+
+✔ Synthetic Somatic Mutation Injection
+
+A controlled variant landscape can be generated deterministically, allowing:
+
+Known true positives / true negatives
+
+Precise mutation rates
+
+Exact tumor vs. normal comparisons
+
+This produces a perfect ground truth, enabling unbiased evaluation of variant callers.
+
+✔ Coverage-Controlled Experiment Design
+
+Our study demonstrates a key biological principle:
+
+Variant calling accuracy collapses not because callers fail, but because coverage depth is insufficient.
+
+Dataset-1 and Dataset-2/3 highlight this phenomenon vividly.
+
+✔ Lightweight, HPC-Friendly Pipeline
+
+Unlike GIAB workflows (250+ GB), our synthetic datasets:
+
+Download instantly
+
+Run on any HPC
+
+Enable rapid benchmarking without license restrictions
+
+This makes the project especially appealing to:
+
+Research labs
+
+Teaching HPC courses
+
+Diagnostic pipeline developers
+
+Employers evaluating your bioinformatics engineering skills
 
 # 🧱 **Architectural Design**
 
