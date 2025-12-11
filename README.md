@@ -270,18 +270,5 @@ This work was completed as part of the Northeastern University Variant Benchmark
 
 ---
 
-# 🎉 **Your README is Now Ready for Professional Use**
 
-This README:
-
-* Contains **badges**
-* Contains **architecture diagram**
-* Contains **figures**
-* Contains **methods & results**
-* Contains **SLURM scripts**
-* Contains **folder structure**
-* Is **Zenodo-ready**
-* Is **industry-standard** for bioinformatics research
-
----
 
