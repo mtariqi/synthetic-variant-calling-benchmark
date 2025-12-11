@@ -16,6 +16,11 @@
 
 ---
 
+
+<img width="1131" height="767" alt="image" src="https://github.com/user-attachments/assets/b38911ee-31e4-40bc-b37a-c3708468eeff" />
+
+
+
 # 📘 **Abstract**
 
 Variant calling accuracy depends heavily on genome coverage, read depth, sequencing noise, and the mutational landscape. Public benchmark datasets (e.g., GIAB) are extremely large (250–800 GB) and were blocked on our HPC.
@@ -80,13 +85,16 @@ This repository contains the complete pipeline, scripts, figures, and results, d
 Place this file in: `figures/strategy_comparison.png`
 
 ```
-[ Synthetic Read Strategy: Concentration vs Dilution ]
+<img width="658" height="633" alt="image" src="https://github.com/user-attachments/assets/f2da39a2-1201-44ee-ae07-59f5da3a1e98" />
+
 ```
 
 Add reference to image (GitHub will render it):
 
 ```markdown
-![Synthetic Read Strategy](figures/strategy_comparison.png)
+
+<img width="610" height="470" alt="image" src="https://github.com/user-attachments/assets/e37a9c9b-314c-401c-ab12-15be5eec3316" />
+
 ```
 
 ---
