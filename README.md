@@ -1,7 +1,7 @@
 # synthetic Variant Calling Benchmark: A Controlled Framework for Evaluating Somatic Mutation Detection
 Md Tariqul Islam, Atra Alimoradian, Raghad Al-Ampudi Northeastern University — Bioinformatics Department
 
-✨ Abstract
+## ✨ Abstract
 
 Benchmarking somatic variant callers typically requires access to Genome in a Bottle (GIAB) tumor–normal truth sets, which can exceed 200–300 GB per sample and were inaccessible in our HPC environment. To overcome this limitation, we developed a novel synthetic somatic mutation generation pipeline, enabling controlled benchmarking of the two most widely used variant callers: GATK HaplotypeCaller and DeepVariant.
 
@@ -19,7 +19,7 @@ Diluted Whole-Genome Model
 
 The concentrated approach achieved >8,000× depth and successful variant detection, whereas the diluted strategy produced <0.001× depth and failed. This dataset provides a reproducible benchmark for evaluating somatic variant detection sensitivity under known ground truth.
 
-🧬 1. Background & Motivation
+## 🧬 1. Background & Motivation
 
 Somatic variant calling is foundational to:
 
@@ -31,13 +31,13 @@ Personalized oncology therapy selection
 
 Mutation-signature analysis
 
-Clinical diagnostic pipelines
+## Clinical diagnostic pipelines
 
 However, variant calling algorithms behave differently depending on depth, noise, and mutation type. Since the true variants in real samples are often unknown, researchers rely on GIAB truth sets. But these datasets are extremely large and were blocked by our HPC network policy.
 
 Therefore, synthetic somatic mutations provide a controlled, lightweight, fully transparent alternative.
 
-🔬 2. Synthetic Mutation Design
+## 🔬 2. Synthetic Mutation Design
 
 We simulate a tumor-normal pair:
 
@@ -52,7 +52,7 @@ Germline mutations exist in both tumor & normal → not useful for benchmarking 
 
 Somatic mutations enable true positive and false negative quantification
 
-🧪 3. Experimental Design: Concentration vs. Dilution Strategy
+## 🧪 3. Experimental Design: Concentration vs. Dilution Strategy
 
 Your figure (added to figures/strategy_comparison.png):
 
@@ -84,13 +84,9 @@ Depth Formula
 
 A fundamental insight of genomics:
 
-Depth
-=
-Number of bases sequenced
-Genome size
-Depth=
-Genome size
-Number of bases sequenced
+
+<img width="330" height="57" alt="image" src="https://github.com/user-attachments/assets/12bcaa85-d80e-435a-bf68-e415c004bb7b" />
+
 	​
 
 
@@ -115,7 +111,7 @@ Tumor–normal controlled variation
 
 Script: scripts/synthetic_generator.py
 
-4.2 Alignment
+## 4.2 Alignment
 
 We use BWA-MEM for mapping:
 
@@ -123,9 +119,10 @@ bwa mem -t 16 reference.fasta normal_R1.fastq.gz normal_R2.fastq.gz | \
     samtools sort -o normal.sorted.bam
 
 
+
 SLURM script included under scripts/slurm/align.slurm.
 
-4.3 Variant Calling Pipelines
+## 4.3 Variant Calling Pipelines
 Pipeline A — GATK HaplotypeCaller
 
 Haplotype reconstruction
@@ -145,6 +142,8 @@ Superior SNP recall in low-noise (synthetic) settings
 Filtering Strategy:
 
 We apply:
+
+
 <img width="418" height="60" alt="image" src="https://github.com/user-attachments/assets/f38b5e45-f066-454e-b7ce-fdd412506552" />
 
 
@@ -212,7 +211,9 @@ synthetic-variant-calling-benchmark/
 ├── LICENSE
 └── README.md
 ```
-📄 8. Appendix A — SLURM Script (Generate Reads)
+
+## 📄 8. Appendix A — SLURM Script (Generate Reads)
+
 #!/bin/bash
 #SBATCH --job-name=generate_syn
 #SBATCH --output=logs/gen_%j.out
@@ -230,7 +231,7 @@ python scripts/synthetic_generator.py \
     --num_reads 5000 \
     --output_dir data/synthetic_fastq/
 
-📄 9. Appendix B — Synthetic Read Generator (Full Script)
+## 📄 9. Appendix B — Synthetic Read Generator (Full Script)
 
 Your entire long script will be placed in:
 
@@ -239,11 +240,11 @@ scripts/synthetic_generator.py
 
 I will insert the cleaned version when you are ready.
 
-⚖️ 10. License
+## ⚖️ 10. License
 
 MIT License included for Zenodo indexing.
 
-🏛️ 11. Zenodo Citation Block
+## 🏛️ 11. Zenodo Citation Block
 
 When you create a GitHub release:
 
@@ -256,11 +257,11 @@ When you create a GitHub release:
   url          = {https://doi.org/10.xxxx/zenodo.xxxxxxx}
 }
 
-🧑‍🔬 12. Acknowledgments
+## 🧑‍🔬 12. Acknowledgments
 
 This project was completed as part of the HPC Bioinformatics Workflow Group at Northeastern University. Special thanks to teammates and instructors for discussions on synthetic benchmarking and variant calling strategies.
 
-🎯 13. Summary
+## 🎯 13. Summary
 
 This repository provides:
 
