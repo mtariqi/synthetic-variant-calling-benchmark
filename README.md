@@ -112,6 +112,10 @@ Diagnostic pipeline developers
 
 Employers evaluating your bioinformatics engineering skills
 
+
+<img width="1681" height="910" alt="image" src="https://github.com/user-attachments/assets/ad04096e-5857-4e20-a020-a0b4099a9b07" />
+
+
 # 🧱 **Architectural Design**
 
 ## 🔧 **Pipeline Architecture (High-Level)**
