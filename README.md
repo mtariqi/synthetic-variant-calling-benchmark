@@ -8,11 +8,7 @@
 ```
 
 ----
-![Nextflow Workflow](docs/workflow.svg)
 
-
-```
-```
 # 🧬 **Synthetic Variant Calling Benchmark**
 
 ### *Controlled Somatic Mutation Framework for Evaluating Variant Callers*
