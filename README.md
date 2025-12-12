@@ -163,9 +163,11 @@ Small, self-contained datasets ensure that **any researcher worldwide** can repr
 
 ---
 
-## 🌟 Unique Scientific Contributions
-``
-`    A[Reference Genome hg38] --> B[Extract 600bp Region<br/>Chromosome 1]
+### Computational Workflow
+
+```mermaid
+graph TB
+    A[Reference Genome hg38] --> B[Extract 600bp Region<br/>Chromosome 1]
     B --> C[Synthetic Read Generation<br/>Python + Biopython]
     C --> D[Normal Samples<br/>normal1, normal2]
     C --> E[Tumor Samples<br/>tumor1, tumor2]
@@ -190,6 +192,63 @@ Small, self-contained datasets ensure that **any researcher worldwide** can repr
     style L fill:#d4edda
     style P fill:#cce5ff
     style Q fill:#d1ecf1
+```
+
+### Coverage Strategy Comparison
+
+```mermaid
+graph LR
+    A[5000 Paired Reads] --> B{Distribution Strategy}
+    B --> C[Dataset 1:<br/>Concentrated Coverage]
+    B --> D[Datasets 2-3:<br/>Dispersed Coverage]
+    C --> E[600bp Region<br/>Chr1 Only]
+    D --> F[Genome-wide<br/>All Chromosomes]
+    E --> G[8000x Local Depth<br/>✓ Success]
+    F --> H[<10x Average Depth<br/>✗ Insufficient]
+    G --> I[~200 Variants Detected]
+    H --> J[Detection Failed]
+    
+    style C fill:#d4edda
+    style D fill:#f8d7da
+    style G fill:#28a745,color:#fff
+    style H fill:#dc3545,color:#fff
+    style I fill:#d4edda
+    style J fill:#f8d7da
+```
+
+### Software Stack
+
+```mermaid
+graph TD
+    A[HPC Environment<br/>Slurm Workload Manager] --> B[Container Runtime]
+    B --> C[Singularity Container 1<br/>GATK 4.2.3.0]
+    B --> D[Singularity Container 2<br/>DeepVariant 1.2.0]
+    E[Reference Data] --> F[hg38 Reference Genome]
+    E --> G[chr1 600bp Window]
+    H[Analysis Tools] --> I[BWA-MEM Aligner]
+    H --> J[SAMtools Suite]
+    H --> K[Python + Biopython]
+    C --> L[Variant Calling Pipeline]
+    D --> L
+    F --> L
+    I --> L
+    J --> L
+    
+    style A fill:#e9ecef
+    style C fill:#cfe2ff
+    style D fill:#cfe2ff
+    style L fill:#d1ecf1
+```
+
+## 🚀 Installation
+
+### Prerequisites
+
+- High-Performance Computing (HPC) access with Slurm
+- Singularity/Apptainer (for containerization)
+- Python 3.8+
+- Minimum 32 GB RAM
+- 100 GB storage space
 ``
 
 ### Methodological Innovation
