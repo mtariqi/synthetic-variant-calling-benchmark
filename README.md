@@ -378,8 +378,6 @@ This work represents a **methodological innovation** with immediate practical ap
 
 ## 🧬 **Synthetic Strategy Visualization**
 
-Place this file in: `figures/strategy_comparison.png`
-
 ```
 
 ```markdown
