@@ -1,0 +1,22 @@
+name: vbench
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - biopython
+  - samtools
+  - bwa
+  - freebayes
+  - bcftools
+  - htslib
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - pip
+  - pip:
+      - pyfastx
+      - pysam
+      - rich
