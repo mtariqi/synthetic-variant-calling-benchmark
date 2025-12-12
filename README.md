@@ -8,7 +8,8 @@
 ```
 
 ----
-<object type="image/svg+xml" data="assets/workflow.svg" width="100%"></object>
+![Workflow Diagram](docs/assets/nextflow_singularity_workflow.png)
+
 ```
 ```
 # 🧬 **Synthetic Variant Calling Benchmark**
