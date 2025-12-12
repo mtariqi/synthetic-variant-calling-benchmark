@@ -1,0 +1,22 @@
+title: Synthetic Variant Calling Benchmark
+description: Reproducible synthetic somatic variant calling benchmark (DeepVariant vs GATK) on HPC using Singularity.
+theme: minima
+
+# Navigation
+header_pages:
+  - index.md
+  - methods.md
+  - results.md
+  - reproducibility.md
+
+# Build options
+markdown: kramdown
+highlighter: rouge
+
+# URL settings (update the baseurl and url once repo is live)
+baseurl: "" # e.g. "/synthetic-variant-calling-benchmark"
+url: ""     # e.g. "https://mtariqi.github.io"
+
+# Custom assets
+sass:
+  style: compressed
