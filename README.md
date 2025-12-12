@@ -28,6 +28,9 @@
 [![Bioinformatics](https://img.shields.io/badge/field-Bioinformatics-green.svg)](https://en.wikipedia.org/wiki/Bioinformatics)
 [![NGS](https://img.shields.io/badge/sequencing-NGS-orange.svg)](https://en.wikipedia.org/wiki/DNA_sequencing)
 [![Reproducibility](https://img.shields.io/badge/reproducibility-validated-brightgreen.svg)](https://www.nature.com/articles/533452a)
+<!-- Reference Data -->
+[![GIAB](https://img.shields.io/badge/benchmark-GIAB-purple.svg?style=flat)](https://www.nist.gov/programs-projects/genome-bottle)
+[![Reference](https://img.shields.io/badge/reference-GRCh38-purple.svg?style=flat)](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.26/)
 <!-- Environment & Dependencies -->
 [![Conda](https://img.shields.io/badge/package-conda-green.svg?style=flat&logo=anaconda)](https://docs.conda.io/)
 [![Bioconda](https://img.shields.io/badge/install-bioconda-green.svg?style=flat)](https://bioconda.github.io/)
