@@ -164,7 +164,7 @@ Small, self-contained datasets ensure that **any researcher worldwide** can repr
 ---
 
 ### Computational Workflow
-
+```
 ```
 graph TB
     A[Reference Genome hg38] --> B[Extract 600bp Region<br/>Chromosome 1]
