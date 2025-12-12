@@ -28,11 +28,7 @@
 
 ---
 
-
-
 <img width="1131" height="767" alt="image" src="https://github.com/user-attachments/assets/b38911ee-31e4-40bc-b37a-c3708468eeff" />
-
-
 
 # 📘 **Abstract**
 
@@ -267,7 +263,7 @@ This work represents a **methodological innovation** with immediate practical ap
 # 🧱 **Architectural Design**
 
 ## 🔧 **Pipeline Architecture (High-Level)**
-
+```
 ```
  ┌────────────────────┐
  │  Reference Genome   │  (hg38 or chr1 slice)
@@ -286,7 +282,7 @@ This work represents a **methodological innovation** with immediate practical ap
  └─────────┬──────────┘
            │
            ▼
- ┌────────────────────┐ *(DeepVariant)*
+ ┌────────────────────┐ 
  │ Variant Calling     │  GATK HC + DeepVariant
  │ (Pipeline A & B)    │
  └─────────┬──────────┘
@@ -297,7 +293,7 @@ This work represents a **methodological innovation** with immediate practical ap
  │  Precision/Recall   │  Concordance metrics
  └────────────────────┘
 ```
-
+```
 ---
 
 ## 🧬 **Synthetic Strategy Visualization**
