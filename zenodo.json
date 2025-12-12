@@ -1,0 +1,46 @@
+{
+  "title": "Synthetic Variant Calling Benchmark",
+  "upload_type": "dataset",
+  "publication_type": "dataset",
+  "description": "A synthetic somatic variant calling benchmarking dataset and HPC workflow including concentrated, uniform, and GC-biased read simulation combined with BWA-MEM, SAMtools, and FreeBayes/bcftools variant calling on Northeastern University's Explorer HPC cluster.",
+  "creators": [
+    {
+      "name": "Islam, Md Tariqul",
+      "affiliation": "Northeastern University"
+    },
+    {
+      "name": "Alimoradian, Atra",
+      "affiliation": "Northeastern University"
+    },
+    {
+      "name": "Al-Ampudi, Raghad",
+      "affiliation": "Northeastern University"
+    }
+  ],
+  "keywords": [
+    "synthetic data",
+    "somatic mutation",
+    "variant calling",
+    "benchmarking",
+    "HPC",
+    "bioinformatics",
+    "tumor-normal",
+    "Nextflow",
+    "SLURM"
+  ],
+  "license": "MIT",
+  "version": "1.0.0",
+  "doi": "",
+  "publication_date": "2025-01-01",
+  "access_right": "open",
+  "communities": [
+    { "identifier": "bioinformatics" }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/mtariqi/synthetic-variant-calling-benchmark",
+      "relation": "isSupplementTo",
+      "resource_type": "dataset"
+    }
+  ]
+}
