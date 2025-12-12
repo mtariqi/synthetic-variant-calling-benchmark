@@ -165,7 +165,6 @@ Small, self-contained datasets ensure that **any researcher worldwide** can repr
 
 ### Computational Workflow
 ```
-```
 graph TB
     A[Reference Genome hg38] --> B[Extract 600bp Region<br/>Chromosome 1]
     B --> C[Synthetic Read Generation<br/>Python + Biopython]
@@ -193,7 +192,7 @@ graph TB
     style P fill:#cce5ff
     style Q fill:#d1ecf1
 ```
-
+``
 ### Coverage Strategy Comparison
 
 ```mermaid
