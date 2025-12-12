@@ -338,7 +338,7 @@ Once you publish:
 
 ```text
 @dataset{tariq2025syntheticvc,
-  author = {Md Tariqul Islam},
+  author = {Md Tariqul Islam}, {Atra Alimoradian}, {Raghad Al-Ampudi}
   title  = {Synthetic Variant Calling Benchmark},
   year   = 2025,
   doi    = {10.xxxx/zenodo.xxxxxx},
