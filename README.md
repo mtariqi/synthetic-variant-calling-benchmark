@@ -29,7 +29,6 @@
 [![NGS](https://img.shields.io/badge/sequencing-NGS-orange.svg)](https://en.wikipedia.org/wiki/DNA_sequencing)
 [![Reproducibility](https://img.shields.io/badge/reproducibility-validated-brightgreen.svg)](https://www.nature.com/articles/533452a)
 ![HPC](https://img.shields.io/badge/HPC-SLURM-lightgrey)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17915965.svg)](https://doi.org/10.5281/zenodo.17915965)
 ![Northeastern University](https://img.shields.io/badge/Affiliation-Northeastern%20University-cc0000)
 
 
