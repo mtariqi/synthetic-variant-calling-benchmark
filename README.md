@@ -428,47 +428,79 @@ run_deepvariant \
 
 ## Variant Counts
 
-| Sample           | GATK | DeepVariant | Δ   |
-| ---------------- | ---- | ----------- | --- |
-| synthetic_NORMAL | 179  | 197         | +18 |
-| synthetic_TUMOR  | 383  | 408         | +25 |
-
-DeepVariant consistently detects more true variants.
+| Metric | GATK HaplotypeCaller | DeepVariant | Improvement |
+|--------|---------------------|-------------|-------------|
+| **Normal Sample Variants** | 179 | 197 | +18 (+10.1%) |
+| **Tumor Sample Variants** | 383 | 408 | +25 (+6.5%) |
+| **Concordance** | Baseline | 100% on GATK calls | Perfect subset |
 
 ---
 
 # 📁 **Repository Structure**
 
 ```bash
-synthetic-variant-calling-benchmark/
+somatic-variant-calling-benchmark/
 │
-├── data/
-│   ├── reference/
-│   └── fastq/
+├── README.md                          # This file
+├── LICENSE                            # MIT License
+├── requirements.txt                   # Python dependencies
+├── environment.yml                    # Conda environment
 │
-├── scripts/
-│   ├── synthetic_generator.py
-│   ├── evaluate_metrics.py
-│   └── pipeline/
-│       ├── run_bwa.sh
-│       ├── run_gatk.sh
-│       └── run_deepvariant.sh
+├── data/                             # Data directory
+│   ├── reference/                    # Reference genomes
+│   │   ├── hg38.fa
+│   │   ├── hg38.fa.fai
+│   │   └── chr1_600bp.fa
+│   ├── synthetic/                    # Generated synthetic data
+│   │   ├── dataset1/                 # Concentrated coverage
+│   │   │   ├── normal1_R1.fastq
+│   │   │   ├── normal1_R2.fastq
+│   │   │   ├── tumor1_R1.fastq
+│   │   │   └── tumor1_R2.fastq
+│   │   ├── dataset2/                 # Dispersed coverage
+│   │   └── dataset3/
+│   └── aligned/                      # Aligned BAM files
+│       ├── normal1.sorted.bam
+│       ├── tumor1.sorted.bam
+│       └── *.bai
 │
-├── slurm/
-│   ├── generate_reads.slurm
-│   ├── align.slurm
-│   └── call_variants.slurm
+├── scripts/                          # Analysis scripts
+│   ├── 01_generate_synthetic_reads.py
+│   ├── 02_align_reads.sh
+│   ├── 03_call_variants_gatk.sh
+│   ├── 04_call_variants_deepvariant.sh
+│   ├── 05_compare_vcfs.py
+│   └── utils/
+│       ├── fastq_generator.py
+│       ├── mutation_injector.py
+│       └── vcf_parser.py
 │
-├── results/
-│   ├── vcfs/
-│   ├── metrics/
-│   └── figures/
+├── containers/                       
+│   ├── gatk_4.2.3.0.sif
+│   └── deepvariant_1.2.0.sif
 │
-├── environment.yml
-├── config.json
-├── .gitignore
-├── LICENSE
-└── README.md
+├── results/                          # Analysis results
+│   ├── vcf/                         # Variant calling outputs
+│   │   ├── gatk/
+│   │   └── deepvariant/
+│   ├── qc/                          # Quality control metrics
+│   ├── figures/                     # Generated plots
+│   └── tables/                      # Summary statistics
+│
+├── docs/                            # Documentation
+│   ├── methodology.md
+│   ├── troubleshooting.md
+│   └── supplementary_analysis.pdf
+│
+├── slurm/                           # HPC job scripts
+│   ├── job_alignment.slurm
+│   ├── job_gatk.slurm
+│   └── job_deepvariant.slurm
+│
+└── tests/                           # Unit tests
+    ├── test_fastq_generation.py
+    ├── test_alignment.py
+    └── test_vcf_comparison.py
 ```
 
 ---
