@@ -165,8 +165,8 @@ Small, self-contained datasets ensure that **any researcher worldwide** can repr
 
 ## 🌟 Unique Scientific Contributions
 ```
-```
-graph TB
+Computational Workflow
+mermaidgraph TB
     A[Reference Genome hg38] --> B[Extract 600bp Region<br/>Chromosome 1]
     B --> C[Synthetic Read Generation<br/>Python + Biopython]
     C --> D[Normal Samples<br/>normal1, normal2]
@@ -185,15 +185,14 @@ graph TB
     N --> O
     O --> P[Comparative Analysis<br/>Concordance & Statistics]
     P --> Q[Validation Results]
-``    
+    
     style A fill:#e1f5ff
     style C fill:#fff3cd
     style F fill:#f8d7da
     style L fill:#d4edda
     style P fill:#cce5ff
     style Q fill:#d1ecf1
-```
-```
+````
 ### Methodological Innovation
 - **First synthetic somatic benchmarking framework** for tumor-normal variant calling
 - **Empirical coverage dependency demonstration** through controlled experimental design
