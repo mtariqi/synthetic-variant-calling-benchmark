@@ -15,6 +15,12 @@
 </p>
 
 ---
+[![Build Status](https://img.shields.io/badge/CI-Pending-lightgrey)]()
+[![Coverage](https://img.shields.io/badge/Coverage-Not%20Measured-lightgrey)]()
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-ready-blue)]()
+[![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-success)]()
+[![Snakemake](https://img.shields.io/badge/Snakemake-Workflow-green)]()
+[![Nextflow](https://img.shields.io/badge/Nextflow-SLURM%20Profile-purple)]()
 
 
 <img width="1131" height="767" alt="image" src="https://github.com/user-attachments/assets/b38911ee-31e4-40bc-b37a-c3708468eeff" />
