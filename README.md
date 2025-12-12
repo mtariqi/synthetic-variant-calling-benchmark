@@ -65,7 +65,7 @@ Barbitoff et al., “Systematic benchmarking of variant calling pipelines for cl
 doi: 10.1186/s13073-022-01057-7
 
 🔬 What the Barbitoff et al. Study Did
-
+```
 ```
 | Aspect                     | Barbitoff et al. (2022)                                                   | Our Work                                           |
 | -------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------- |
@@ -80,7 +80,7 @@ doi: 10.1186/s13073-022-01057-7
 
 <img width="586" height="761" alt="image" src="https://github.com/user-attachments/assets/63e6ff6b-6e40-419d-b7d6-a75daca5d7c5" />
 
-
+```
 
 # 🧬 Why Our Project Is Novel and Scientifically Valuable
 
