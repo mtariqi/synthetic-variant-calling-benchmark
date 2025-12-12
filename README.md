@@ -263,10 +263,6 @@ This work represents a **methodological innovation** with immediate practical ap
 
 *"Making variant caller benchmarking accessible, reproducible, and scientifically rigorous for every researcher, student, and clinician."*
 ```
-```
-```
-
-```
 
 # 🧱 **Architectural Design**
 
@@ -290,18 +286,7 @@ This work represents a **methodological innovation** with immediate practical ap
  └─────────┬──────────┘
            │
            ▼
- ┌────────────────────┐1. Barbitoff, Y.A., Khmelkova, D.N., Shcherbakova, I.V., et al.  
-   *Systematic benchmarking of variant calling pipelines for clinical diagnostics.*  
-   Genome Medicine 14, 10 (2022).  
-   https://doi.org/10.1186/s13073-022-01057-7
-
-2. Zook, J.M., et al.  
-   *Open-access next-generation sequencing resources for variant analysis.*  
-   GIAB Consortium, NIST.
-
-3. Poplin, R., et al.  
-   *A universal SNP and small-indel variant caller using deep neural networks.*  
-   Nature Biotechnology (2018). *(DeepVariant)*
+ ┌────────────────────┐ *(DeepVariant)*
  │ Variant Calling     │  GATK HC + DeepVariant
  │ (Pipeline A & B)    │
  └─────────┬──────────┘
