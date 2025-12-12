@@ -56,26 +56,21 @@
 
 
 
-# 📘 **Abstract**
+# Abstract
 
-Variant calling accuracy depends heavily on genome coverage, read depth, sequencing noise, and the mutational landscape. Public benchmark datasets (e.g., GIAB) are extremely large (250–800 GB) and were blocked on our HPC.
+Variant calling accuracy depends critically on genome coverage, read depth, sequencing noise, and the underlying mutational landscape. Although widely used public benchmark datasets (e.g., Genome in a Bottle, GIAB) provide high-quality truth sets, their large size (≈250–800 GB) makes them impractical or inaccessible on many high-performance computing (HPC) environments due to storage and policy constraints.
 
-To address this, we developed a **synthetic tumor–normal somatic mutation framework**, enabling controlled benchmarks of:
+To address this limitation, we developed a synthetic tumor–normal somatic mutation benchmarking framework that enables controlled, lightweight evaluation of somatic variant calling performance under explicitly defined coverage conditions. Synthetic paired-end reads were generated with known somatic mutations and aligned using BWA-MEM, followed by variant calling with GATK HaplotypeCaller and Google DeepVariant.
 
-* **GATK HaplotypeCaller**
-* **Google DeepVariant**
+We evaluated three experimental datasets:
 
-Our approach compares:
+**Dataset-1 (Concentrated coverage)**:
+5,000 paired-end reads confined to a 600 bp window on chromosome 1, yielding >8,000× depth and enabling successful detection of somatic variants.
 
-### ✔ Dataset-1: *Concentrated reads*
+**Dataset-2 and Dataset-3 (Diluted coverage)**:
+The same 5,000 read pairs distributed across the entire hg38 genome, resulting in <0.001× depth and no detectable variants.
 
-5,000 read pairs from a **600 bp chr1 window** → **>8,000× depth** → **successful variant calling**
-
-### ✔ Dataset-2 & Dataset-3: *Diluted reads*
-
-Same 5,000 read pairs from **entire hg38 genome** → **<0.001× depth** → **no variants detected**
-
-This repository contains the complete pipeline, scripts, figures, and results, demonstrating why *coverage depth is the single most important factor in mutation detection*.
+This repository provides the complete reproducible pipeline, including synthetic data generation, BWA-MEM alignment, variant calling workflows, benchmarking scripts, figures, and results. Our findings demonstrate that coverage depth is the dominant determinant of somatic variant detection, independent of the variant caller used, and highlight the value of synthetic data frameworks for scalable, HPC-friendly benchmarking of variant calling pipelines.
 
 ---
 # 📚 Related Work & Comparison to Published Benchmarking Studies
