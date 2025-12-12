@@ -381,12 +381,6 @@ This work represents a **methodological innovation** with immediate practical ap
 Place this file in: `figures/strategy_comparison.png`
 
 ```
-```
-<img width="658" height="633" alt="image" src="https://github.com/user-attachments/assets/f2da39a2-1201-44ee-ae07-59f5da3a1e98" />
-
-```
-
-Add reference to image (GitHub will render it):
 
 ```markdown
 ```
