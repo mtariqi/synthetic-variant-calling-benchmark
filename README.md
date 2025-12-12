@@ -13,9 +13,9 @@
 # 🧬 **Synthetic Variant Calling Benchmark**
 
 ### *Controlled Somatic Mutation Framework for Evaluating Variant Callers*
-
+```
 ![Workflow Diagram](docs/assets/nextflow_singularity_workflow.png)
-
+```
 
 **Md Tariqul Islam (mtariqi)**, **Atra Alimoradian**, **Raghad Al-Ampudi** -- Bioinformatics Department, Northeastern University
 
