@@ -19,8 +19,6 @@ DeepVariant vs GATK • Tumor–Normal Simulation • HPC • Singularity
 
 ---
 
-## 🔖 **Badges**
-
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![Singularity](https://img.shields.io/badge/Container-Singularity-purple)
 ![Nextflow](https://img.shields.io/badge/Nextflow-SLURM-darkgreen)
