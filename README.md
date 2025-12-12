@@ -163,9 +163,10 @@ Small, self-contained datasets ensure that **any researcher worldwide** can repr
 
 ---
 
-🏗️ Project Architecture
-Computational Workflow
-mermaidgraph TB
+### Computational Workflow
+
+```mermaid
+graph TB
     A[Reference Genome hg38] --> B[Extract 600bp Region<br/>Chromosome 1]
     B --> C[Synthetic Read Generation<br/>Python + Biopython]
     C --> D[Normal Samples<br/>normal1, normal2]
@@ -191,8 +192,12 @@ mermaidgraph TB
     style L fill:#d4edda
     style P fill:#cce5ff
     style Q fill:#d1ecf1
-Coverage Strategy Comparison
-mermaidgraph LR
+```
+
+### Coverage Strategy Comparison
+
+```mermaid
+graph LR
     A[5000 Paired Reads] --> B{Distribution Strategy}
     B --> C[Dataset 1:<br/>Concentrated Coverage]
     B --> D[Datasets 2-3:<br/>Dispersed Coverage]
@@ -209,8 +214,12 @@ mermaidgraph LR
     style H fill:#dc3545,color:#fff
     style I fill:#d4edda
     style J fill:#f8d7da
-Software Stack
-mermaidgraph TD
+```
+
+### Software Stack
+
+```mermaid
+graph TD
     A[HPC Environment<br/>Slurm Workload Manager] --> B[Container Runtime]
     B --> C[Singularity Container 1<br/>GATK 4.2.3.0]
     B --> D[Singularity Container 2<br/>DeepVariant 1.2.0]
@@ -229,8 +238,8 @@ mermaidgraph TD
     style C fill:#cfe2ff
     style D fill:#cfe2ff
     style L fill:#d1ecf1
-
 ```
+
 
 ### Software Stack
 
