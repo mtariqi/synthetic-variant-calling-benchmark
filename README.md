@@ -8,8 +8,7 @@
 ```
 
 ----
-
-```
+``
 
 # 🧬 **Synthetic Variant Calling Benchmark**
 
@@ -127,6 +126,7 @@ Diagnostic pipeline developers
 
 Employers evaluating your bioinformatics engineering skills
 
+```
 ```
 <svg width="1080" height="620" viewBox="0 0 1080 620" xmlns="http://www.w3.org/2000/svg">
 
@@ -314,7 +314,7 @@ Employers evaluating your bioinformatics engineering skills
 
 </svg>
 
-
+```
 
 # 🧱 **Architectural Design**
 
