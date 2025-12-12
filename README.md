@@ -165,6 +165,35 @@ Small, self-contained datasets ensure that **any researcher worldwide** can repr
 
 ## 🌟 Unique Scientific Contributions
 
+```
+graph TB
+    A[Reference Genome hg38] --> B[Extract 600bp Region<br/>Chromosome 1]
+    B --> C[Synthetic Read Generation<br/>Python + Biopython]
+    C --> D[Normal Samples<br/>normal1, normal2]
+    C --> E[Tumor Samples<br/>tumor1, tumor2]
+    E --> F[Somatic Mutation Injection<br/>2% mutation rate]
+    D --> G[FASTQ Files<br/>5000 paired-end reads]
+    F --> G
+    G --> H[Read Alignment<br/>BWA-MEM]
+    H --> I[SAM to BAM Conversion<br/>SAMtools]
+    I --> J[Sorting & Indexing<br/>SAMtools]
+    J --> K[Quality Control<br/>SAMtools flagstat]
+    K --> L{Variant Calling}
+    L --> M[GATK HaplotypeCaller]
+    L --> N[DeepVariant CNN]
+    M --> O[VCF Output]
+    N --> O
+    O --> P[Comparative Analysis<br/>Concordance & Statistics]
+    P --> Q[Validation Results]
+    
+    style A fill:#e1f5ff
+    style C fill:#fff3cd
+    style F fill:#f8d7da
+    style L fill:#d4edda
+    style P fill:#cce5ff
+    style Q fill:#d1ecf1
+```
+
 ### Methodological Innovation
 - **First synthetic somatic benchmarking framework** for tumor-normal variant calling
 - **Empirical coverage dependency demonstration** through controlled experimental design
