@@ -164,10 +164,8 @@ Small, self-contained datasets ensure that **any researcher worldwide** can repr
 ---
 
 ## 🌟 Unique Scientific Contributions
-```
-Computational Workflow
-mermaidgraph TB
-    A[Reference Genome hg38] --> B[Extract 600bp Region<br/>Chromosome 1]
+``
+`    A[Reference Genome hg38] --> B[Extract 600bp Region<br/>Chromosome 1]
     B --> C[Synthetic Read Generation<br/>Python + Biopython]
     C --> D[Normal Samples<br/>normal1, normal2]
     C --> E[Tumor Samples<br/>tumor1, tumor2]
@@ -192,7 +190,8 @@ mermaidgraph TB
     style L fill:#d4edda
     style P fill:#cce5ff
     style Q fill:#d1ecf1
-````
+``
+
 ### Methodological Innovation
 - **First synthetic somatic benchmarking framework** for tumor-normal variant calling
 - **Empirical coverage dependency demonstration** through controlled experimental design
@@ -208,8 +207,7 @@ mermaidgraph TB
 - **Accelerates pipeline development**: Rapid iteration and validation cycles
 - **Enables education**: Realistic variant calling exercises in classroom settings
 - **Facilitates reproducibility**: Complete workflow portable across any HPC environment
-
----
+`-
 
 ## 🎓 Target Audiences and Applications
 
