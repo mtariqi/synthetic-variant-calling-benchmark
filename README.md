@@ -206,7 +206,6 @@ Small, self-contained datasets ensure that **any researcher worldwide** can repr
 - Provide portfolio evidence of reproducible research practices
 
 ---
-
 ## 📊 Validation Against Established Literature
 
 Our synthetic approach **complements rather than replaces** gold-standard GIAB validation:
@@ -225,8 +224,6 @@ Our synthetic approach **complements rather than replaces** gold-standard GIAB v
 2. **Comprehensive validation** with GIAB datasets
 3. **Clinical deployment** with confidence in performance characteristics
 
----
-
 ## 🚀 Future Extensions and Impact
 
 This framework establishes a **foundation for expanded investigations**:
@@ -240,8 +237,6 @@ This framework establishes a **foundation for expanded investigations**:
 
 **Long-term Vision:**
 Create a **community resource** of synthetic tumor-normal datasets spanning diverse biological scenarios, enabling standardized, reproducible benchmarking across the computational genomics field.
-
----
 
 ## 💡 Conclusion: A New Standard for Accessible Benchmarking
 
@@ -541,7 +536,7 @@ Once you publish:
 
 
 
-# 🙏 **Acknowledgements**
+# **Acknowledgements**
 
 This work was completed as part of the Northeastern University Variant Benchmarks Group. Special thanks to Atra and Raghad for insights into somatic variant modeling and HPC genomics workflows.
 
