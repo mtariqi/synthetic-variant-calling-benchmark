@@ -8,7 +8,8 @@
 ```
 
 ----
-![Workflow Diagram](docs/assets/nextflow_singularity_workflow.png)
+![Nextflow Workflow](docs/workflow.svg)
+
 
 ```
 ```
