@@ -1,0 +1,9 @@
+title: Synthetic Variant Calling Benchmark
+description: Reproducible tumor–normal synthetic variant calling benchmark using HPC and Singularity
+theme: minima
+
+markdown: kramdown
+highlighter: rouge
+
+header_pages:
+  - index.md
