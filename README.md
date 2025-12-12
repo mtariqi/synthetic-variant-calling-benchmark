@@ -21,18 +21,16 @@ DeepVariant vs GATK • Tumor–Normal Simulation • HPC • Singularity
 
 ## 🔖 **Badges**
 
-<p align="left">
-
-<a href="#"><img src="https://img.shields.io/badge/Python-3.10+-blue.svg"></a> <a href="#"><img src="https://img.shields.io/badge/DeepVariant-v1.2.0-orange.svg"></a> <a href="#"><img src="https://img.shields.io/badge/GATK-4.4-blue.svg"></a> <a href="#"><img src="https://img.shields.io/badge/BWA--MEM-0.7.18-green.svg"></a> <a href="#"><img src="https://img.shields.io/badge/HPC-SLURM-critical.svg"></a> <a href="#"><img src="https://img.shields.io/badge/License-MIT-green.svg"></a> <a href="#"><img src="https://img.shields.io/badge/Zenodo-DOI%20Ready-yellow.svg"></a> <a href="#"><img src="https://img.shields.io/badge/Reproducible%20Research-Yes-success.svg"></a>
-
-</p>
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Singularity](https://img.shields.io/badge/Container-Singularity-purple)
+![Nextflow](https://img.shields.io/badge/Nextflow-SLURM-darkgreen)
+![Snakemake](https://img.shields.io/badge/Snakemake-Workflow-orange)
+![GATK](https://img.shields.io/badge/GATK-4.2.3.0-yellow)
+![DeepVariant](https://img.shields.io/badge/DeepVariant-1.2.0-red)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow)
+![Zenodo](https://img.shields.io/badge/DOI-Coming%20Soon-blue)
 
 ---
-[![Singularity](https://img.shields.io/badge/Container-Singularity%20(.sif)-purple)]()
-[![Nextflow](https://img.shields.io/badge/Nextflow-SLURM%20Profile-darkgreen)]()
-[![Snakemake](https://img.shields.io/badge/Snakemake-Workflow-orange)]()
-[![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-success)]()
-[![CI/CD](https://img.shields.io/badge/GitHub-Actions-inactive-lightgrey)]()
 
 
 
