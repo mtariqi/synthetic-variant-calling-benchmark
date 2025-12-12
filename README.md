@@ -12,7 +12,7 @@
 # 🧬 **Synthetic Variant Calling Benchmark**
 
 ### *Controlled Somatic Mutation Framework for Evaluating Variant Callers*
-**Md Tariqul Islam (mtariqi)**, **Atra Alimoradian**, **Raghad Al-Ampudi** -- Bioinformatics Department, Northeastern University
+**Md Tariqul Islam (mtariqi)**, **Atra Alimoradian**, **Raghad Al-Amoudi** -- Bioinformatics Department, Northeastern University
 
 ---
 
@@ -612,7 +612,7 @@ Once you publish:
 
 ```text
 @dataset{tariq2025syntheticvc,
-  author = {Md Tariqul Islam}, {Atra Alimoradian}, {Raghad Al-Ampudi}
+  author = {Md Tariqul Islam}, {Atra Alimoradian}, {Raghad Al-Amoudi}
   title  = {Synthetic Variant Calling Benchmark},
   year   = 2025,
   doi    = {10.xxxx/zenodo.xxxxxx},
