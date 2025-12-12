@@ -21,6 +21,7 @@
 ![R](https://img.shields.io/badge/R-4.3+-276DC3)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Enabled-ff6f00)
 ![Singularity](https://img.shields.io/badge/Container-Singularity-orange)
+[![BWA](https://img.shields.io/badge/aligner-BWA--MEM-orange.svg?style=flat)](http://bio-bwa.sourceforge.net/)
 ![GATK](https://img.shields.io/badge/GATK-4.2.3.0-yellow)
 ![DeepVariant](https://img.shields.io/badge/DeepVariant-1.2.0-red)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow)
