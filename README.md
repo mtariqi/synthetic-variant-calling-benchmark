@@ -72,7 +72,7 @@ doi: 10.1186/s13073-022-01057-7
 | **Filtering strategies**   | CNN filtering, VQSR, hard filters                                         | Hard filters only (no VQSR due to synthetic truth) |
 | **Truth set**              | GIAB high-confidence regions                                              | Synthetic somatic truth injected programmatically  |
 ```
-
+```
 <img width="586" height="761" alt="image" src="https://github.com/user-attachments/assets/63e6ff6b-6e40-419d-b7d6-a75daca5d7c5" />
 
 ```
