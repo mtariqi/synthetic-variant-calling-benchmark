@@ -23,6 +23,8 @@
 ![Singularity](https://img.shields.io/badge/Container-Singularity-orange)
 [![BWA](https://img.shields.io/badge/aligner-BWA--MEM-orange.svg?style=flat)](http://bio-bwa.sourceforge.net/)
 ![GATK](https://img.shields.io/badge/GATK-4.2.3.0-yellow)
+![Samtools](https://img.shields.io/badge/Samtools-1.21-4c1)
+![BCFtools](https://img.shields.io/badge/BCFtools-1.21-4c1)
 ![DeepVariant](https://img.shields.io/badge/DeepVariant-1.2.0-red)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17915965.svg)](https://doi.org/10.5281/zenodo.17915965)
