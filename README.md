@@ -9,8 +9,8 @@
 
 ----
 <object type="image/svg+xml" data="assets/workflow.svg" width="100%"></object>
-
-
+```
+```
 # 🧬 **Synthetic Variant Calling Benchmark**
 
 ### *Controlled Somatic Mutation Framework for Evaluating Variant Callers*
