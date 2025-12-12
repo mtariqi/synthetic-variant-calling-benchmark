@@ -28,6 +28,17 @@
 [![Bioinformatics](https://img.shields.io/badge/field-Bioinformatics-green.svg)](https://en.wikipedia.org/wiki/Bioinformatics)
 [![NGS](https://img.shields.io/badge/sequencing-NGS-orange.svg)](https://en.wikipedia.org/wiki/DNA_sequencing)
 [![Reproducibility](https://img.shields.io/badge/reproducibility-validated-brightgreen.svg)](https://www.nature.com/articles/533452a)
+<!-- Environment & Dependencies -->
+[![Conda](https://img.shields.io/badge/package-conda-green.svg?style=flat&logo=anaconda)](https://docs.conda.io/)
+[![Bioconda](https://img.shields.io/badge/install-bioconda-green.svg?style=flat)](https://bioconda.github.io/)
+[![Container](https://img.shields.io/badge/container-ready-2496ED.svg?style=flat&logo=docker)](https://www.docker.com/)
+<!-- Code Quality -->
+[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat)](https://github.com/psf/black)
+[![Linting](https://img.shields.io/badge/linting-pylint-yellowgreen.svg?style=flat)](https://www.pylint.org/)
+<!-- Project Status -->
+[![Status](https://img.shields.io/badge/status-active-success.svg?style=flat)]()
+[![Maintained](https://img.shields.io/badge/maintained-yes-green.svg?style=flat)]()
+[![Course](https://img.shields.io/badge/course-BINF6310-informational.svg?style=flat)]()
 ![HPC](https://img.shields.io/badge/HPC-SLURM-lightgrey)
 ![Northeastern University](https://img.shields.io/badge/Affiliation-Northeastern%20University-cc0000)
 
