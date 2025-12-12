@@ -25,12 +25,13 @@
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![Singularity](https://img.shields.io/badge/Container-Singularity-purple)
-![Nextflow](https://img.shields.io/badge/Nextflow-SLURM-darkgreen)
-![Snakemake](https://img.shields.io/badge/Snakemake-Workflow-orange)
 ![GATK](https://img.shields.io/badge/GATK-4.2.3.0-yellow)
 ![DeepVariant](https://img.shields.io/badge/DeepVariant-1.2.0-red)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow)
-![Zenodo](https://img.shields.io/badge/DOI-Coming%20Soon-blue)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![Bioinformatics](https://img.shields.io/badge/field-Bioinformatics-green.svg)](https://en.wikipedia.org/wiki/Bioinformatics)
+[![NGS](https://img.shields.io/badge/sequencing-NGS-orange.svg)](https://en.wikipedia.org/wiki/DNA_sequencing)
+[![Reproducibility](https://img.shields.io/badge/reproducibility-validated-brightgreen.svg)](https://www.nature.com/articles/533452a)
 
 ---
 
