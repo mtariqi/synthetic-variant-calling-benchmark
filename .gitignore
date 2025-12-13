@@ -1,48 +1,293 @@
+# ==============================================================================
+# .gitignore for Somatic Variant Calling Benchmark Project
+# Tailored for: Python + R + Bash + SLURM HPC workflow
+# ==============================================================================
+
+# ==============================================================================
 # Python
+# ==============================================================================
 __pycache__/
-*.pyc
-*.pyo
-.env/
-.venv/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# Conda
+# Virtual environments
+.env
+.venv
 env/
-*.lock
+venv/
+ENV/
+env.bak/
+venv.bak/
 
-# Logs
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# ==============================================================================
+# R
+# ==============================================================================
+# R History files
+.Rhistory
+.Rapp.history
+
+# R Session Data files
+.RData
+.RDataTmp
+
+# R User-specific files
+.Ruserdata
+
+# R package building
+*.tar.gz
+*.Rcheck/
+*.Rproj.user/
+
+# knitr and R markdown temporary files
+*.utf8.md
+*.knit.md
+*_cache/
+*_files/
+
+# RStudio project files (optional - remove if you want to track)
+*.Rproj
+.Rproj.user/
+
+# ==============================================================================
+# Conda/Mamba Environment Management
+# ==============================================================================
+*.lock
+.conda/
+.mamba/
+conda-meta/
+
+# ==============================================================================
+# HPC SLURM Logs
+# ==============================================================================
 *.log
 *.out
 *.err
 slurm-*.out
 slurm-*.err
+*.e[0-9]*
+*.o[0-9]*
+.slurm_job_*
 
-# Bioinformatics large files
+# SLURM-specific directories
+logs/*/
+scratch/
+
+# ==============================================================================
+# Bioinformatics Large Data Files
+# ==============================================================================
+
+# Raw Sequencing Data (exclude large files, keep small examples)
 *.fastq
 *.fastq.gz
+*.fq
+*.fq.gz
+!data/synthetic/example_*.fastq     # Keep small example files
+!test/fixtures/*.fastq               # Keep test fixtures
+
+# Alignment Files (BAM/SAM)
 *.bam
 *.bam.bai
+*.bam.csi
 *.sam
+*.cram
+*.cram.crai
+!test/fixtures/*.bam                 # Keep small test BAMs
+
+# Variant Call Format Files (VCF/BCF)
 *.vcf
 *.vcf.gz
+*.vcf.gz.tbi
+*.vcf.idx
 *.bcf
 *.bcf.csi
+!results/vcf/example_*.vcf           # Keep example VCFs for documentation
+!test/fixtures/*.vcf                 # Keep test VCFs
 
-# Nextflow
-.work/
-.nextflow*
-trace.txt
-timeline.html
-reports/
+# Reference Genomes (exclude large, keep small subset)
+hg38.fa
+hg38.fa.*
+GRCh38*.fa
+GRCh38*.fa.*
+GRCh37*.fa
+GRCh37*.fa.*
+!data/reference/chr1_600bp.fa        # Keep small 600bp reference subset
+!data/reference/chr1_600bp.fa.fai    # Keep its index
 
-# Snakemake
-.snakejob*
-.snakemake/
+# BWA Index Files
+*.amb
+*.ann
+*.bwt
+*.pac
+*.sa
 
-# Results
-results/
-metrics/
+# GATK Dictionary Files (generated, can be recreated)
+*.dict
 
-# IDE
+# ==============================================================================
+# Singularity/Apptainer Container Images
+# ==============================================================================
+# Exclude large container images (5+ GB each)
+*.sif
+*.img
+
+# But keep container definition files if you create custom ones
+!containers/*.def
+!containers/Singularity*
+
+# ==============================================================================
+# Results & Outputs (Selective Inclusion)
+# ==============================================================================
+
+# Exclude large intermediate results
+data/aligned/*.bam
+data/aligned/*.bam.bai
+results/vcf/gatk/*.vcf
+results/vcf/deepvariant/*.vcf.gz
+results/qc/coverage_analysis/*.txt
+
+# But INCLUDE final summary outputs (small files for Zenodo)
+!results/tables/*.csv
+!results/figures/**/*.pdf
+!results/figures/**/*.png
+!results/figures/**/*.svg
+!results/R_analysis/**/*.pdf
+!results/R_analysis/**/*.html
+!results/comparison/*.csv
+!results/qc/*.flagstat
+
+# Metrics raw data (can be large)
+metrics/raw_data/
+
+# ==============================================================================
+# IDE & Editor Files
+# ==============================================================================
+
+# VSCode
 .vscode/
+*.code-workspace
+
+# PyCharm / IntelliJ IDEA
 .idea/
+*.iml
+*.iws
+*.ipr
+
+# RStudio (already covered above)
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+\#*\#
+.\#*
+
+# ==============================================================================
+# Operating System Files
+# ==============================================================================
+
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ==============================================================================
+# Temporary & Backup Files
+# ==============================================================================
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+
+# ==============================================================================
+# Security & Credentials
+# ==============================================================================
+*.pem
+*.key
+.env.local
+.env.production
+secrets.yaml
+config/credentials.yml
+*.secret
+
+# ==============================================================================
+# Documentation Build Artifacts
+# ==============================================================================
+docs/_build/
+docs/.doctrees/
+site/
+
+# ==============================================================================
+# Testing
+# ==============================================================================
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+*.cover
+
+# ==============================================================================
+# Benchmarking Data
+# ==============================================================================
+benchmarks/raw_data/
+*.benchmark
+
+# ==============================================================================
+# Project-Specific Large Directories
+# ==============================================================================
+
+# Dataset directories with large files
+data/synthetic/dataset1_concentrated/*.fastq
+data/synthetic/dataset2_dispersed/
+data/synthetic/dataset3_dispersed/
+
+# But keep the README files explaining the datasets
+!data/synthetic/**/README.md
+!data/synthetic/**/mutation_log.txt
