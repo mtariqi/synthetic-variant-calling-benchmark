@@ -906,13 +906,15 @@ MIT License is included for Zenodo archiving.
 Once you publish:
 
 ```text
-@dataset{tariq2025syntheticvc,
-  author = {Md Tariqul Islam}, {Atra Alimoradian}, {Raghad Al-Amoudi}
-  title  = {Synthetic Variant Calling Benchmark},
-  year   = 2025,
-  doi    = {10.xxxx/zenodo.xxxxxx},
-  url    = {},
+@dataset{islam2025syntheticvc,
+  author    = {Islam, Md Tariqul and Alimoradian, Atra and Al-Amoudi, Raghad},
+  title     = {Synthetic Variant Calling Benchmark},
+  year      = {2025},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.7195965},
+  url       = {https://doi.org/10.5281/zenodo.7195965}
 }
+
 ```
 
 ---
