@@ -522,6 +522,349 @@ run_deepvariant \
 ```
 
 ---
+# Complete Project Structure with R Integration
+
+```
+somatic-variant-calling-benchmark/
+│
+├── README.md                          # Comprehensive project documentation
+├── LICENSE                            # MIT License
+├── requirements.txt                   # Python dependencies
+├── environment.yml                    # Conda environment specification
+├── install_r_packages.R               # R package installation script
+├── .gitignore                         # Git ignore rules
+├── CITATION.cff                       # Citation metadata
+│
+├── data/                              # Data directory
+│   ├── reference/                     # Reference genomes
+│   │   ├── hg38.fa                   # Full hg38 reference
+│   │   ├── hg38.fa.fai               # FASTA index
+│   │   ├── hg38.dict                 # Sequence dictionary
+│   │   ├── chr1_600bp.fa             # Extracted 600bp region
+│   │   └── chr1_600bp.fa.fai         # Region index
+│   │
+│   ├── synthetic/                     # Generated synthetic data
+│   │   ├── dataset1_concentrated/    # Concentrated coverage strategy
+│   │   │   ├── normal1_R1.fastq
+│   │   │   ├── normal1_R2.fastq
+│   │   │   ├── normal2_R1.fastq
+│   │   │   ├── normal2_R2.fastq
+│   │   │   ├── tumor1_R1.fastq
+│   │   │   ├── tumor1_R2.fastq
+│   │   │   ├── tumor2_R1.fastq
+│   │   │   ├── tumor2_R2.fastq
+│   │   │   └── mutation_log.txt      # Ground truth mutations
+│   │   │
+│   │   ├── dataset2_dispersed/       # Dispersed coverage (failed)
+│   │   │   └── README.md             # Explanation of failure
+│   │   │
+│   │   └── dataset3_dispersed/       # Dispersed coverage (failed)
+│   │       └── README.md             # Explanation of failure
+│   │
+│   └── aligned/                       # Aligned BAM files
+│       ├── normal1.sorted.bam
+│       ├── normal1.sorted.bam.bai
+│       ├── normal2.sorted.bam
+│       ├── normal2.sorted.bam.bai
+│       ├── tumor1.sorted.bam
+│       ├── tumor1.sorted.bam.bai
+│       ├── tumor2.sorted.bam
+│       └── tumor2.sorted.bam.bai
+│
+├── scripts/                           # Analysis scripts
+│   ├── 01_generate_synthetic_reads.py # Python: Synthetic data generation
+│   ├── 02_align_reads.sh             # Bash: BWA-MEM alignment
+│   ├── 03_call_variants_gatk.sh      # Bash: GATK variant calling
+│   ├── 04_call_variants_deepvariant.sh # Bash: DeepVariant calling
+│   ├── 05_compare_vcfs.py            # Python: VCF comparison
+│   ├── 06_visualize_results.R        # R: Comprehensive visualization
+│   ├── 07_statistical_analysis.R     # R: Statistical testing
+│   ├── 08_generate_report.Rmd        # R Markdown: Automated report
+│   │
+│   ├── python/                        # Python utilities
+│   │   ├── __init__.py
+│   │   ├── fastq_generator.py        # FASTQ synthesis
+│   │   ├── mutation_injector.py      # Somatic mutation injection
+│   │   ├── bam_processor.py          # BAM file handling
+│   │   ├── vcf_parser.py             # VCF file parsing
+│   │   └── quality_control.py        # QC metrics calculation
+│   │
+│   └── R/                             # R analysis suite
+│       ├── 01_parse_vcf.R            # VCF parsing functions
+│       ├── 02_concordance_analysis.R  # Concordance calculations
+│       ├── 03_alluvial_plots.R       # Flow diagram generation
+│       ├── 04_upset_plots.R          # Set intersection plots
+│       ├── 05_statistical_tests.R    # Hypothesis testing
+│       ├── 06_variant_type_analysis.R # SNP/Indel classification
+│       ├── 07_publication_figures.R  # Multi-panel figures
+│       │
+│       └── utils/                     # R utility functions
+│           ├── plot_themes.R         # Custom ggplot2 themes
+│           ├── color_palettes.R      # Color schemes
+│           ├── summary_functions.R   # Statistical summaries
+│           ├── vcf_helpers.R         # VCF manipulation
+│           └── export_functions.R    # Figure export utilities
+│
+├── containers/                        # Container images
+│   ├── gatk_4.2.3.0.sif              # GATK Singularity container
+│   ├── deepvariant_1.2.0.sif         # DeepVariant Singularity container
+│   └── README.md                     # Container usage instructions
+│
+├── results/                           # Analysis results
+│   ├── vcf/                          # Variant calling outputs
+│   │   ├── gatk/                     # GATK VCF files
+│   │   │   ├── normal1.vcf
+│   │   │   ├── normal1.vcf.idx
+│   │   │   ├── normal2.vcf
+│   │   │   ├── tumor1.vcf
+│   │   │   └── tumor2.vcf
+│   │   │
+│   │   └── deepvariant/              # DeepVariant VCF files
+│   │       ├── normal1.vcf.gz
+│   │       ├── normal1.vcf.gz.tbi
+│   │       ├── normal2.vcf.gz
+│   │       ├── tumor1.vcf.gz
+│   │       └── tumor2.vcf.gz
+│   │
+│   ├── qc/                           # Quality control metrics
+│   │   ├── alignment_stats/
+│   │   │   ├── normal1.flagstat
+│   │   │   ├── normal1.stats
+│   │   │   ├── tumor1.flagstat
+│   │   │   └── tumor1.stats
+│   │   │
+│   │   └── coverage_analysis/
+│   │       ├── normal1_coverage.txt
+│   │       └── tumor1_coverage.txt
+│   │
+│   ├── comparison/                    # Python comparison outputs
+│   │   ├── variant_comparison.csv
+│   │   ├── concordance_matrix.csv
+│   │   ├── gatk_only_variants.vcf
+│   │   └── deepvariant_only_variants.vcf
+│   │
+│   ├── figures/                       # Generated visualizations
+│   │   ├── png/                      # High-resolution PNG (300 DPI)
+│   │   │   ├── 01_variant_count_comparison.png
+│   │   │   ├── 02_concordance_rate.png
+│   │   │   ├── 03_overlap_analysis.png
+│   │   │   ├── 04_upset_plot.png
+│   │   │   ├── 05_alluvial_flow.png
+│   │   │   ├── 06_variant_type_distribution.png
+│   │   │   └── 07_combined_summary.png
+│   │   │
+│   │   ├── pdf/                      # Publication-quality PDF
+│   │   │   ├── 01_variant_count_comparison.pdf
+│   │   │   ├── 02_concordance_rate.pdf
+│   │   │   ├── 03_overlap_analysis.pdf
+│   │   │   ├── 04_upset_plot.pdf
+│   │   │   ├── 05_alluvial_flow.pdf
+│   │   │   ├── 06_variant_type_distribution.pdf
+│   │   │   └── 07_combined_summary.pdf
+│   │   │
+│   │   ├── svg/                      # Scalable vector graphics
+│   │   │   └── workflow_diagram.svg
+│   │   │
+│   │   └── interactive/              # Interactive HTML plots (optional)
+│   │       └── variant_explorer.html
+│   │
+│   ├── tables/                        # Summary statistics
+│   │   ├── concordance_metrics.csv
+│   │   ├── variant_counts.csv
+│   │   ├── statistical_tests.csv
+│   │   ├── variant_type_summary.csv
+│   │   └── caller_performance.csv
+│   │
+│   └── R_analysis/                    # R-specific outputs
+│       ├── alluvial_diagram.pdf
+│       ├── venn_diagrams.pdf
+│       ├── upset_plots.pdf
+│       ├── concordance_heatmap.pdf
+│       ├── statistical_report.html
+│       ├── variant_analysis.RData    # R workspace
+│       └── session_info.txt          # R session information
+│
+├── docs/                              # Documentation
+│   ├── methodology.md                # Detailed methodology
+│   ├── troubleshooting.md            # Common issues & solutions
+│   ├── api_reference.md              # Function documentation
+│   ├── r_analysis_guide.md           # R analysis tutorial
+│   ├── best_practices.md             # Recommendations
+│   ├── supplementary_analysis.pdf    # Additional analyses
+│   │
+│   ├── figures/                      # Documentation figures
+│   │   ├── workflow_overview.png
+│   │   ├── coverage_strategy.png
+│   │   └── architecture_diagram.png
+│   │
+│   └── tutorials/                    # Step-by-step guides
+│       ├── 01_quick_start.md
+│       ├── 02_synthetic_data_generation.md
+│       ├── 03_variant_calling.md
+│       ├── 04_python_analysis.md
+│       ├── 05_r_visualization.md
+│       └── 06_interpretation.md
+│
+├── slurm/                            # HPC job scripts
+│   ├── 01_job_alignment.slurm       # Alignment job
+│   ├── 02_job_gatk.slurm            # GATK job
+│   ├── 03_job_deepvariant.slurm     # DeepVariant job
+│   ├── 04_job_comparison.slurm      # Python comparison job
+│   ├── 05_job_r_analysis.slurm      # R analysis job
+│   ├── master_pipeline.slurm         # Complete pipeline
+│   │
+│   └── config/                       # SLURM configuration
+│       ├── resource_specs.txt        # Resource requirements
+│       └── module_loads.sh           # Module loading script
+│
+├── tests/                            # Unit tests
+│   ├── test_fastq_generation.py     # Test synthetic data
+│   ├── test_alignment.py            # Test alignment
+│   ├── test_vcf_comparison.py       # Test VCF parsing
+│   ├── test_r_functions.R           # Test R functions
+│   │
+│   └── integration/                  # Integration tests
+│       ├── test_full_pipeline.sh
+│       └── test_r_pipeline.sh
+│
+├── notebooks/                        # Analysis notebooks
+│   ├── exploratory_analysis.ipynb   # Jupyter notebook
+│   ├── coverage_analysis.Rmd        # R Markdown notebook
+│   ├── variant_quality_analysis.Rmd
+│   └── publication_figures.Rmd      # Figure generation
+│
+├── benchmarks/                       # Performance benchmarks
+│   ├── runtime_comparison.csv
+│   ├── memory_usage.csv
+│   └── benchmark_report.html
+│
+└── logs/                             # Execution logs
+    ├── alignment/
+    │   ├── normal1.log
+    │   └── tumor1.log
+    ├── gatk/
+    │   └── variant_calling.log
+    ├── deepvariant/
+    │   └── variant_calling.log
+    ├── python_analysis/
+    │   └── comparison.log
+    └── r_analysis/
+        └── visualization.log
+```
+
+## 📊 R Analysis Outputs Summary
+
+### Generated Figures (8 types)
+
+1. **Variant Count Comparison** (`01_variant_count_comparison.pdf/png`)
+   - Bar chart comparing GATK vs DeepVariant detection
+   - Shows absolute counts and percentage differences
+   - Color-coded by caller
+
+2. **Concordance Rate Plot** (`02_concordance_rate.pdf/png`)
+   - Visualizes shared vs unique variants
+   - Displays concordance percentages
+   - Three-category breakdown
+
+3. **Overlap Analysis** (`03_overlap_analysis.pdf/png`)
+   - Detailed variant overlap visualization
+   - Shows GATK-only, DV-only, and shared variants
+   - Bar chart with counts
+
+4. **UpSet Plot** (`04_upset_plot.pdf/png`)
+   - Set intersection visualization
+   - Superior to Venn diagrams for >2 sets
+   - Shows all possible intersections
+
+5. **Alluvial Flow Diagram** (`05_alluvial_flow.pdf/png`)
+   - Flow-based visualization
+   - Shows variant distribution between callers
+   - Demonstrates subset relationship
+
+6. **Variant Type Distribution** (`06_variant_type_distribution.pdf/png`)
+   - SNP vs Insertion vs Deletion breakdown
+   - Compared across both callers
+   - Grouped bar chart
+
+7. **Combined Summary Figure** (`07_combined_summary.pdf/png`)
+   - Multi-panel publication-ready figure
+   - Combines 3-4 key visualizations
+   - High-resolution composite image
+
+8. **Statistical Report** (`statistical_report.html`)
+   - Interactive HTML report
+   - Complete statistical analysis
+   - Embedded tables and figures
+
+### Statistical Outputs
+
+- **concordance_metrics.csv**: Detailed concordance statistics
+- **variant_counts.csv**: Raw variant counts per sample/caller
+- **statistical_tests.csv**: T-test results, p-values, effect sizes
+- **variant_type_summary.csv**: Breakdown by variant type
+- **caller_performance.csv**: Sensitivity, precision, F1 scores
+
+### R Data Objects
+
+- **variant_analysis.RData**: Complete R workspace for reproduction
+- **session_info.txt**: R version, package versions, system info
+
+## 🔧 Key Configuration Files
+
+### `install_r_packages.R`
+```r
+#!/usr/bin/env Rscript
+# Automated R package installation
+
+packages <- c(
+  "ggplot2", "dplyr", "tidyr", "vcfR", 
+  "UpSetR", "ggalluvial", "gridExtra", 
+  "RColorBrewer", "scales", "knitr", "rmarkdown"
+)
+
+install.packages(packages, repos = "https://cran.r-project.org")
+
+# Install Bioconductor packages if needed
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("VariantAnnotation")
+```
+## 📝 File Size Estimates
+
+| Directory | Typical Size | Notes |
+|-----------|-------------|-------|
+| `data/reference/` | ~3.2 GB | Full hg38 genome |
+| `data/synthetic/` | ~100 MB | FASTQ files (4 samples) |
+| `data/aligned/` | ~200 MB | BAM files with indexes |
+| `results/vcf/` | ~10 MB | VCF files (compressed) |
+| `results/figures/` | ~50 MB | High-res figures (PDF/PNG) |
+| `results/R_analysis/` | ~20 MB | R outputs and reports |
+| `containers/` | ~5 GB | Singularity images |
+| **Total Project** | **~8-9 GB** | Complete workspace |
+
+## 🎯 Quick Navigation
+
+- **Start here**: `README.md`
+- **Generate data**: `scripts/01_generate_synthetic_reads.py`
+- **Run analysis**: `slurm/master_pipeline.slurm`
+- **View results**: `results/figures/07_combined_summary.pdf`
+- **R analysis**: `scripts/06_visualize_results.R`
+- **Statistical tests**: `scripts/07_statistical_analysis.R`
+- **Documentation**: `docs/tutorials/`
+
+## 🔬 Analysis Workflow
+
+1. **Data Generation** → `scripts/01_*.py`
+2. **Alignment** → `scripts/02_*.sh`
+3. **Variant Calling** → `scripts/03_*.sh` + `scripts/04_*.sh`
+4. **Python Analysis** → `scripts/05_*.py`
+5. **R Visualization** → `scripts/06_*.R`
+6. **Statistical Testing** → `scripts/07_*.R`
+7. **Report Generation** → `scripts/08_*.Rmd`
+
+This structure supports reproducible, publication-quality genomics research with comprehensive Python and R integration!
+
 
 # 📊 **Results**
 
@@ -532,75 +875,6 @@ run_deepvariant \
 | **Normal Sample Variants** | 179 | 197 | +18 (+10.1%) |
 | **Tumor Sample Variants** | 383 | 408 | +25 (+6.5%) |
 | **Concordance** | Baseline | 100% on GATK calls | Perfect subset |
-
----
-
-# 📁 **Repository Structure**
-
-```bash
-somatic-variant-calling-benchmark/
-│
-├── README.md                          # This file
-├── LICENSE                            # MIT License
-├── requirements.txt                   # Python dependencies
-├── environment.yml                    # Conda environment
-│
-├── data/                             # Data directory
-│   ├── reference/                    # Reference genomes
-│   │   ├── hg38.fa
-│   │   ├── hg38.fa.fai
-│   │   └── chr1_600bp.fa
-│   ├── synthetic/                    # Generated synthetic data
-│   │   ├── dataset1/                 # Concentrated coverage
-│   │   │   ├── normal1_R1.fastq
-│   │   │   ├── normal1_R2.fastq
-│   │   │   ├── tumor1_R1.fastq
-│   │   │   └── tumor1_R2.fastq
-│   │   ├── dataset2/                 # Dispersed coverage
-│   │   └── dataset3/
-│   └── aligned/                      # Aligned BAM files
-│       ├── normal1.sorted.bam
-│       ├── tumor1.sorted.bam
-│       └── *.bai
-│
-├── scripts/                          # Analysis scripts
-│   ├── 01_generate_synthetic_reads.py
-│   ├── 02_align_reads.sh
-│   ├── 03_call_variants_gatk.sh
-│   ├── 04_call_variants_deepvariant.sh
-│   ├── 05_compare_vcfs.py
-│   └── utils/
-│       ├── fastq_generator.py
-│       ├── mutation_injector.py
-│       └── vcf_parser.py
-│
-├── containers/                       
-│   ├── gatk_4.2.3.0.sif
-│   └── deepvariant_1.2.0.sif
-│
-├── results/                          # Analysis results
-│   ├── vcf/                         # Variant calling outputs
-│   │   ├── gatk/
-│   │   └── deepvariant/
-│   ├── qc/                          # Quality control metrics
-│   ├── figures/                     # Generated plots
-│   └── tables/                      # Summary statistics
-│
-├── docs/                            # Documentation
-│   ├── methodology.md
-│   ├── troubleshooting.md
-│   └── supplementary_analysis.pdf
-│
-├── slurm/                           # HPC job scripts
-│   ├── job_alignment.slurm
-│   ├── job_gatk.slurm
-│   └── job_deepvariant.slurm
-│
-└── tests/                           # Unit tests
-    ├── test_fastq_generation.py
-    ├── test_alignment.py
-    └── test_vcf_comparison.py
-```
 
 ---
 
