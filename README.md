@@ -16,7 +16,7 @@
 
 ---
 
-
+![CI](https://github.com/mtariqi/synthetic-variant-calling-benchmark/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![R](https://img.shields.io/badge/R-4.3+-276DC3)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Enabled-ff6f00)
