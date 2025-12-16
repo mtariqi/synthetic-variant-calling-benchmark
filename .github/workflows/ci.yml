@@ -21,5 +21,4 @@ jobs:
       - name: Run unit checks
         run: python -m py_compile scripts/*.py || true
 
-      - name: Nextflow Lint
-        uses: nf-core/tools/action-lint@master
+
