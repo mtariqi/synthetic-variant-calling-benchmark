@@ -62,7 +62,7 @@ Variant calling accuracy depends critically on genome coverage, read depth, sequ
 
 To address this limitation, we developed a synthetic tumor–normal somatic mutation benchmarking framework that enables controlled, lightweight evaluation of somatic variant calling performance under explicitly defined coverage conditions. Synthetic paired-end reads were generated with known somatic mutations and aligned using BWA-MEM, followed by variant calling with GATK HaplotypeCaller and Google DeepVariant.
 
-We evaluated three experimental datasets:
+We evaluated three experimental datasets: 
 
 **Dataset-1 (Concentrated coverage)**:
 5,000 paired-end reads confined to a 600 bp window on chromosome 1, yielding >8,000× depth and enabling successful detection of somatic variants.
@@ -73,7 +73,7 @@ The same 5,000 read pairs distributed across the entire hg38 genome, resulting i
 This repository provides the complete reproducible pipeline, including synthetic data generation, BWA-MEM alignment, variant calling workflows, benchmarking scripts, figures, and results. Our findings demonstrate that coverage depth is the dominant determinant of somatic variant detection, independent of the variant caller used, and highlight the value of synthetic data frameworks for scalable, HPC-friendly benchmarking of variant calling pipelines.
 
 ---
-# 📚 Related Work & Comparison to Published Benchmarking Studies
+# 📚 Related Work & Comparison to Published Benchmarking Studies 
 
 Reliable benchmarking of variant callers typically depends on very large, high-quality truth sets such as the Genome in a Bottle (GIAB) consortium. One of the most comprehensive variant calling benchmark studies is:
 
@@ -170,7 +170,7 @@ Traditional GIAB workflows require substantial computational infrastructure:
 - 🖥️ **Hardware**: Runs on standard HPC allocations
 - 📖 **Licensing**: Completely open and unrestricted
 
-**Broad Applicability:**
+**Broad Applicability:** 
 This makes our framework particularly valuable for:
 
 1. **Research Laboratories**: Rapid prototyping and algorithm development
