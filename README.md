@@ -27,7 +27,7 @@
 ![BCFtools](https://img.shields.io/badge/BCFtools-1.21-4c1)
 ![DeepVariant](https://img.shields.io/badge/DeepVariant-1.2.0-red)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17915965.svg)](https://doi.org/10.5281/zenodo.17915965)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17915965.svg)](https://doi.org/10.5281/zenodo.18712798)
 [![Bioinformatics](https://img.shields.io/badge/field-Bioinformatics-green.svg)](https://en.wikipedia.org/wiki/Bioinformatics)
 [![NGS](https://img.shields.io/badge/sequencing-NGS-orange.svg)](https://en.wikipedia.org/wiki/DNA_sequencing)
 [![Reproducibility](https://img.shields.io/badge/reproducibility-validated-brightgreen.svg)](https://www.nature.com/articles/533452a)
