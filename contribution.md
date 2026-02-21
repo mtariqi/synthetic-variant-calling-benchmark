@@ -494,8 +494,8 @@ Islam, M. T., et al. (2025). *A Synthetic Benchmark for Somatic Variant Calling 
 - Affiliation: Bioinformatics Program, Northeastern University  
 - Email: islam.mdtar@northeastern.edu
 
-**Raghad [Last Name]**  
-- Role: GATK Variant Calling & Evaluation  
+**Raghad Al-Amoudi**  
+- Role: Variant Calling (GATK HaplotypeCaller & DeepVariant) & Concordance Analysis   
 - Affiliation: Northeastern University
 
 **Atra [Last Name]**  
