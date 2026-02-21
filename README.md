@@ -502,23 +502,86 @@ samtools index sample.sorted.bam
 
 ## 4. Variant Calling Pipelines
 
-### **Pipeline A — GATK HaplotypeCaller**
+### Step 1 — Add Read Groups (for GATK)
 
 ```bash
-gatk HaplotypeCaller \
-   -R reference.fasta \
-   -I tumor.sorted.bam \
-   -O tumor.gatk.raw.vcf
+sbatch add_readgroups.slurm <SAMPLE>
 ```
 
-### **Pipeline B — DeepVariant**
+```bash
+singularity exec --bind /scratch docker://broadinstitute/gatk:4.2.3.0 gatk AddOrReplaceReadGroups \
+  -I bam/${SAMPLE}.sorted.bam \
+  -O bam/${SAMPLE}.bam \
+  -RGID 1 \
+  -RGLB lib1 \
+  -RGPL ILLUMINA \
+  -RGPU unit1 \
+  -RGSM ${SAMPLE}
+
+singularity exec --bind /scratch docker://broadinstitute/gatk:4.2.3.0 gatk BuildBamIndex \
+  -I bam/${SAMPLE}.bam
+```
+
+### Step 2 — Pipeline A: GATK HaplotypeCaller + Hard Filtering
 
 ```bash
-run_deepvariant \
-   --model_type=WGS \
-   --ref=reference.fasta \
-   --reads=tumor.sorted.bam \
-   --output_vcf=tumor.dv.vcf
+sbatch gatk_variant_calling.slurm
+```
+
+```bash
+# Call variants
+singularity exec --bind /scratch docker://broadinstitute/gatk:4.2.3.0 \
+  gatk --java-options "-Xmx12g" HaplotypeCaller \
+  -R ${REFERENCE} \
+  -I bam/${SAMPLE}.bam \
+  -O results/gatk/${SAMPLE}_simple.vcf
+
+# Select and filter SNPs
+singularity exec --bind /scratch docker://broadinstitute/gatk:4.2.3.0 gatk SelectVariants \
+  -R ${REFERENCE} -V results/gatk/${SAMPLE}_simple.vcf \
+  -select-type SNP -O results/gatk/${SAMPLE}_SNPs.vcf
+
+singularity exec --bind /scratch docker://broadinstitute/gatk:4.2.3.0 gatk VariantFiltration \
+  -R ${REFERENCE} -V results/gatk/${SAMPLE}_SNPs.vcf \
+  -filter "QD < 2.0" --filter-name "QD2" \
+  -filter "QUAL < 30.0" --filter-name "QUAL30" \
+  -filter "SOR > 3.0" --filter-name "SOR3" \
+  -filter "FS > 60.0" --filter-name "FS60" \
+  -filter "MQ < 40.0" --filter-name "MQ40" \
+  -O results/gatk/${SAMPLE}_SNPs_filtered.vcf
+
+# Select and filter INDELs
+singularity exec --bind /scratch docker://broadinstitute/gatk:4.2.3.0 gatk SelectVariants \
+  -R ${REFERENCE} -V results/gatk/${SAMPLE}_simple.vcf \
+  -select-type INDEL -O results/gatk/${SAMPLE}_INDELs.vcf
+
+singularity exec --bind /scratch docker://broadinstitute/gatk:4.2.3.0 gatk VariantFiltration \
+  -R ${REFERENCE} -V results/gatk/${SAMPLE}_INDELs.vcf \
+  -filter "QD < 2.0" --filter-name "QD2" \
+  -filter "QUAL < 30.0" --filter-name "QUAL30" \
+  -filter "FS > 200.0" --filter-name "FS200" \
+  -O results/gatk/${SAMPLE}_INDELs_filtered.vcf
+
+# Merge SNPs + INDELs
+singularity exec --bind /scratch docker://broadinstitute/gatk:4.2.3.0 gatk MergeVcfs \
+  -I results/gatk/${SAMPLE}_SNPs_filtered.vcf \
+  -I results/gatk/${SAMPLE}_INDELs_filtered.vcf \
+  -O results/gatk/${SAMPLE}_HARDFILTER.vcf
+```
+
+### Step 3 — Pipeline B: DeepVariant
+
+```bash
+sbatch deepvariant_calling.slurm
+```
+
+```bash
+singularity exec docker://google/deepvariant:1.2.0 /opt/deepvariant/bin/run_deepvariant \
+  --model_type=WGS \
+  --ref=${REFERENCE} \
+  --reads=bam/${SAMPLE}.bam \
+  --output_vcf=results/deepvariant/${SAMPLE}_DV.vcf \
+  --num_shards=8
 ```
 
 ---
