@@ -2,13 +2,13 @@
 
 
 **Raghad Al-Amoudi**, MSc Bioinformatics · **Atra Alimoradian**, MSc Bioinformatics · **Md Tariqul Islam**, MSc Bioinformatics
-Faculty Advisor: Prof. Oyeronke Ayansola — BINF 6310: Introduction to Computational Methods in Bioinformatics
+Faculty Advisor: Prof. Oyeronke Ayansola. BINF 6310: Introduction to Computational Methods in Bioinformatics
 
 ---
 
 ## TL;DR
 
-We reproduced the central finding of [Barbitoff et al. (2022)](https://doi.org/10.1186/s12864-022-08365-3) using lightweight synthetic data on a resource-constrained HPC cluster. **DeepVariant detects 8–14% more variants than GATK HaplotypeCaller** across matched synthetic NORMAL and TUMOR samples, and confirms 100% of GATK's filtered calls. The directional finding — AI-based variant calling outperforms traditional methods — held even at small scale.
+We reproduced the central finding of [Barbitoff et al. (2022)](https://doi.org/10.1186/s12864-022-08365-3) using lightweight synthetic data on a resource-constrained HPC cluster. **DeepVariant detects 8–14% more variants than GATK HaplotypeCaller** across matched synthetic NORMAL and TUMOR samples, and confirms 100% of GATK's filtered calls. The directional finding; AI-based variant calling outperforms traditional methods, held even at small scale.
 
 ---
 
@@ -19,17 +19,15 @@ We reproduced the central finding of [Barbitoff et al. (2022)](https://doi.org/1
 | Synthetic NORMAL | 172 | 197 | 172 | **0** | +25 (+14.5%) | 87.3% |
 | Synthetic TUMOR  | 377 | 408 | 377 | **0** | +31 (+8.2%)  | 92.4% |
 
-GATK raw counts were 179 (NORMAL) and 383 (TUMOR) before hard filtering. Every variant GATK kept was also called by DeepVariant — *DeepVariant's call set fully contains GATK's*.
-
-(figs/fig_venn.png)
+GATK raw counts were 179 (NORMAL) and 383 (TUMOR) before hard filtering. Every variant GATK kept was also called by DeepVariant.
 
 ---
 
-## Methods (short version)
+## Methods
 
 - **Synthetic data:** 5,000 paired-end reads confined to a 600 bp window on chr1 → ~8,000× local coverage. GIAB samples (HG001–HG007) were blocked by HPC IT restrictions, so synthetic reads with injected indel mutations were generated for NORMAL and TUMOR samples.
 - **Alignment:** BWA-MEM → sorted, indexed BAM with read groups.
-- **GATK HaplotypeCaller v4.2.3.0:** `AddOrReplaceReadGroups → HaplotypeCaller → SelectVariants → VariantFiltration → MergeVcfs`. Hard filters from Table 3 of Barbitoff et al. (BQSR skipped — no compatible dbSNP/Mills resources for synthetic reference).
+- **GATK HaplotypeCaller v4.2.3.0:** `AddOrReplaceReadGroups → HaplotypeCaller → SelectVariants → VariantFiltration → MergeVcfs`. Hard filters from Table 3 of Barbitoff et al. (BQSR skipped because no compatible dbSNP/Mills resources for synthetic reference).
 - **DeepVariant v1.2.0:** single command with `--model_type=WGS --num_shards=8`.
 - **Containers:** both callers via Singularity (Docker requires root and is unavailable on shared HPC).
 - **Concordance:** `bcftools isec` → GATK-only, DeepVariant-only, shared.
@@ -40,24 +38,25 @@ Full SLURM scripts: [`add_readgroups.slurm`](add_readgroups.slurm), [`gatk_varia
 
 ## What We Learned Beyond the Paper
 
-1. **Read concentration matters more than total read count.** Two follow-up datasets used the same 5,000 reads but spread them across the full GRCh38 genome — coverage dropped below 0.001× and *zero variants* were detected. This is not discussed in the original paper.
+1. **Read concentration matters more than total read count.** Two follow-up datasets used the same 5,000 reads but spread them across the full GRCh38 genome, coverage dropped below 0.001× and *zero variants* were detected. 
 2. **BQSR cannot be run on synthetic references** without matched dbSNP/Mills resource files. Skipping it preserves a fair head-to-head comparison since both callers receive the same uncalibrated input.
-3. **GATK applies strictly conservative filtering.** Across both samples, the GATK-only set was empty — DeepVariant captured every variant GATK kept, plus additional calls. The difference is driven by recall, not by either tool missing each other's calls.
+3. **GATK applies strictly conservative filtering.** Across both samples, the GATK-only set was empty, DeepVariant captured every variant GATK kept, plus additional calls. The difference is driven by recall, not by either tool missing each other's calls.
 
 ---
 
 ## What We Cannot Claim
 
-- Exact F1, precision, or recall scores — synthetic data has no GIAB-style truth set, so absolute accuracy metrics are not available.
+- Exact F1, precision, or recall scores; synthetic data has no GIAB-style truth set, so absolute accuracy metrics are not available.
 - Performance across diverse genomic contexts (GC content, repetitive regions, exon boundaries).
-- Generalization across ancestry or WES vs. WGS — these would require the full 14 GIAB samples from the original study.
+- Generalization across ancestry or WES vs. WGS; these would require the full 14 GIAB samples from the original study.
 
 ---
 
 ## Contact & Code
 
-- **Raghad Al-Amoudi** — `alamoudi.r@northeastern.edu`
-- **Atra Alimoradian** — _email here_
+- **Raghad Al-Amoudi** - `alamoudi.r@northeastern.edu`
+- **Atra Alimoradian** - `alimoradian.a@northeastern.edu`
+- **Md Tariqul Islam** - `islam.mdtar@northeastern.edu`
 - **Full repository:** [github.com/mtariqi/synthetic-variant-calling-benchmark](https://github.com/mtariqi/synthetic-variant-calling-benchmark)
 - **Full project README** (extended methods, synthetic data framework, coverage analysis): [README.md](README.md)
 
